@@ -13,15 +13,17 @@
  */
 
 /*
-    1
-  / | \
- 2  3  4
-  \    /
-   6  5
+G =  {      0
+        1
+      / | \
+     2  3  4
+      \    /
+       6  5
+   }
 
     Graph G(V, E);
 
- a set of vertices V(G) of the above graph =  {1,2,3,4,5};
+ a set of vertices V(G) of the above graph =  {0,1,2,3,4,5,6};
  a set of edges (written as pair of vertices) = {{1,2}, {1,3}, {1,4}, {2,6}, {4,5}}
 
  representation:
@@ -69,7 +71,7 @@ public:
 void DFS(Graph const &graph, int startVertex, std::vector<bool> &visited)
 {
     // mark the current vertex (startVertex) as visited
-    visited[startVertex] = true; // if,for example, the vertex is 1 that we start at, then we do visited[1] = true so ad to avoid visiting it again
+    visited[startVertex] = true; // if,for example, the vertex is 1 that we start at, then we do visited[1] = true so as to avoid visiting it again
 
     // process the current vertex. This could be any process. Let's just print it out
     std::cout << startVertex << " ";
@@ -87,7 +89,7 @@ void DFS(Graph const &graph, int startVertex, std::vector<bool> &visited)
 
 /**
  * Bread-first search - another traversal algorithm for graphs and trees
- * Start at a vertex, visit every adjacent vertices before moving to the next level
+ * Start at a vertex, visit every adjacent vertices(aka neighboring vertices) before moving to the next level
  * (This is referred to as level order traversal in trees)
  * Bread-first search uses a queue data structure
  */
@@ -145,7 +147,7 @@ int main()
     // we need this to keep track of whether a vertes is visited or not
     std::vector<bool> visited(n, false); // assign every element false
 
-    // Call DFS/BFS on each unvisited vertex so to cover all connected component(a subgraph in which each vertex is reacable from any other vertex)
+    // Call DFS/BFS on each unvisited vertex so to cover all connected component(a subgraph in which each vertex is reachable from any other vertex)
     for (int i = 0; i < n; i++)
     {
         // if vertex i is not visited
